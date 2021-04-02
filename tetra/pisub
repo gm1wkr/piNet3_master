@@ -1,0 +1,1 @@
+mosquitto_sub -v -t '/piNet/#'  -u piNet -P 86532 | xargs -d$'\n' -L1 sh -c 'date "+%d.%m.%Y %T $0"' | ccze -m ansi
