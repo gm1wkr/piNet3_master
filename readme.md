@@ -1,6 +1,6 @@
-#piNet Docs
+# piNet Docs
 
-##Data Structure
+## Data Structure
 
 ```python
 s = "Python syntax highlighting"
