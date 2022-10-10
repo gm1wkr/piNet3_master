@@ -2,10 +2,10 @@
 
 
 """
-PROTO
+PROTOTYPE
 Data structures for piNet MQTT/socket xmission.
 
-Purpose:  Define working JSON packets and associated functions,
+Purpose:  Define/Test JSON packet shape and associated functions,
 excluding wxObs.
 Allow for new types by adding new 'type parser'.
 Packet should be self contained and agnostic of transmission method.
