@@ -19,18 +19,6 @@ import piNetDate
 import pinSQL
 import time
 
-# config_url = "http://tetra.lan/pinet/config.ini"
-# r = requests.get(config_url)
-# config_data = r.text
-
-# # Config
-# buf = io.StringIO(config_data)
-# config = ConfigParser()
-# config.read_file(buf)
-# broker = config.get('mqtt', 'broker')
-# base_topic = config.get("mqtt", "baseTopic")
-
-
 # Config
 thisPi = f"ComSys-{platform.uname()[1]}"
 config = ConfigParser()
@@ -58,7 +46,7 @@ def mqtt_connect(clientID):
     client = mqtt.Client(clientID)
     client.username_pw_set(config.get('mqtt', 'username'),
                            config.get('mqtt', 'password'))
-    client.will_set(last_will_topic, "FUCK SAKE >>>  HELP", 0, False)
+    client.will_set(last_will_topic, "LAST WILL ISSUED >>>  HELP", 0, False)
     client.connect(broker)
     print(announce_topic)
     client.publish(announce_topic, f"{thisPi} ACIVATED", 1, False)
@@ -104,6 +92,8 @@ def command3(payload, topic):
     print(f"Command 3 has executed: {payload} from {topic}.  BYE!")
 
 
+# IS THIS SAFE?????
+# Further reading required - this feels unsafe, verify.
 def doStuff(c):
     if c in commands:
         return globals()[c]()
