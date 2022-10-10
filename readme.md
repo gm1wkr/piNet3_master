@@ -9,4 +9,4 @@ All code in this project was written as a hobbyist before I had benefited from C
 
 ## Overview
 
-Each node is a Raspberry Pi SBC connected to a central broker node via an isolated local area network.  Each node is responsible for one location, for example, 'polyhub' is the pi that monitors my poly tunnel.  The Polyhub node reads various sensors directly and via serial connections microcontrollers.  Microcontrollers allow me to use older 5V sensors and to better drive transitor switches and relays an
+Each node is a Raspberry Pi SBC (Rpi) connected to a central broker node via an isolated local area network.  Each node is responsible for one location, for example, 'polyhub' is the pi that monitors my poly tunnel.  The Polyhub node reads various sensors directly and via serial connections microcontrollers.  Microcontrollers allow me to use older 5V sensors and to better drive transitor switches and relays while only having to level shift the the Rpi required 3V3 once on the serial line.
