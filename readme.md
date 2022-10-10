@@ -9,9 +9,17 @@ All code in this project was written as a hobbyist before I had benefited from C
 
 ## Overview
 
-Each node is a Raspberry Pi SBC (Rpi) connected to a central broker node via an isolated local area network.  Each node is responsible for one location, for example, 'polyhub' is the pi that monitors my poly tunnel.  The Polyhub node reads various sensors directly and via serial connections to ATMEGA328p microcontrollers.  Microcontrollers allow me to use older 5V sensors and to better drive transitor switches and relays while only having to level shift the the Rpi required 3V3 once on the serial line.  Using the 328p also exposed me to learning the basics of C++ and introduced me to the tooling required to compile and flash devices.
+Each node is a Raspberry Pi SBC (Rpi) connected to a central broker node via an isolated local area network.  Each node is responsible for one location, for example, 'polyhub' is the pi that monitors my poly tunnel.  The Polyhub node reads various sensors directly (using I2C and SPi) and via serial connections to ATMEGA328p microcontrollers.  Microcontrollers allow me to use older 5V sensors and to better drive transitor switches and relays while only having to level shift the the Rpi required 3V3 once on the serial line.  Using the 328p also exposed me to learning the basics of C++ and introduced me to the tooling required to compile and flash embedded devices.
 
 ## Sensors 
 Many different sensors have been used including DS18B20 temperature probes, si7120 for air temperature and humidity (laterly upgraded to BME280), soil moisture sensors, light sensors, water tank levels, flow sensors to name a few.  Each sensor has a driver file either utilising third party libraries or manufacturers datasheet examples.
 
-Sensor data is immeadiately parsed to a known structure using python dictionaries for processing within a node and JSON for transport over the network
+Sensor data is immeadiately parsed to a known structure by the node using python and JSON for transport to the master node.  The node can react by triggering alarms, switching on soil bed heating or lighting or activating pumps to deliver water.  All actions are reported to the network.
+
+Sensors are not limited to hardware devices.  I wrote a basic PHP API that receives weather alert data from the Met Office RSS feed and parses it to a 'piNet' JSON format.  The master node consumes this API and reacts by sending an alert Email to interested parties and sending regular alerts to the network while the alert is in force.  Other actions can be taken programatically by command a node, for example, turning on soil bed heating when an Ice alert is issued.
+
+## Central Node
+All nodes report to a master node by delivering JSON objects with a known structure.  Data types include 'sensor', 'command' and 'alarm' and are wrapped in a standard JSON header format.
+
+Various listeners watch the incomming packets which are responsible for filtering data for the front-end, storing records in the database and issuing command to other nodes if required.  For example, sensor records (received every 60 seconds on the wire) are stored in a MySQL database every 5 minutes.  
+
