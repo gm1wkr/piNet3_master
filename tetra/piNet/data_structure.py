@@ -34,7 +34,7 @@ import time
 logging.basicConfig(filename='logs/piNet.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 #  setup
-allowed_cmd = ['command1', 'command2', 'FuckOff']
+allowed_cmd = ['command1', 'command2', 'Test_CMD']
 allowed_types = ['alarm', 'cmd', 'cpu', 'message', 'sensor', 'other']
 
 #
@@ -65,7 +65,7 @@ j_cmd = """
     "machine": "Sentinel21",
     "type": "cmd",
     "data" : {
-        "cmd": "FuckOff",
+        "cmd": "TEST_CMD",
         "param": "on",
         "value": 12.12
         }
@@ -163,7 +163,7 @@ def sensor(j):
 
 # command parsers
 # functions for type['cmd']
-def FuckOff(c):
+def Test_CMD(c):
     val = c['data'].get('value','')
     # print(type(val))
     logStr = (
