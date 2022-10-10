@@ -1,12 +1,9 @@
-# piNet - MQTT Sensor Command and Control EXPERIMENTS
+# piNet3 Python Experiments
 
-## Purpose
-This repository contains experimental code that connects various hardware sensors and actuators to a central broker using MQTT as the main transport.  
+This Python based project aims to create an extensible sensor network using a loose client/server model.
 
-* This project serves as a base for continuing to learn more about Python and designing a bespoke solution for monitoring my property *
+All code in this project was written as a hobbyist before I had benefited from CodeClan Professional Software Development Course, please be forgiving ;-)
 
-Data is collected using various microcontrollers and Raspberry Pi SBCs.  All Pi have a connection to an isolated LAN, the broker also has access to the internet and is capable of receiving AX25 Packets over a 1200 baud amateur radio data link.
 
-## Problems (Oppertunities)
 
 
