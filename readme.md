@@ -5,7 +5,9 @@ This Python based project aims to create an extensible sensor network by using h
 A breif description of the project follows.
 
 ## Disclaimer !
-All code in this project was written as a hobbyist before I had benefited from CodeClan Professional Software Development Course, please be forgiving ;-)  The major purpose of this project was to focus my learning.
+All code in this project was written as a hobbyist before I had benefited from CodeClan Professional Software Development Course, please be forgiving ;-)  The major purpose of this project was to focus my learning and to enjoy the process.  
+
+While planning is everything for most projects it must be understood that this project is driven by falling into rabbit holes and discovering new problems to solve.  There is no final product except learning and discovery.
 
 ## Overview
 
