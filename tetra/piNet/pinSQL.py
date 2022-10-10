@@ -3,6 +3,7 @@
 """
 SQL
 DB: piNet
+Purpose:  Experiment with data structure, table structure and use prepared statements.
 """
 
 import mysql.connector
@@ -10,10 +11,10 @@ from mysql.connector import Error
 import piNetDate
 
 # get from config later
-host = "tetra.lan"
+host = ""
 port = 3306
-user = "pi"
-passwd = "86532"
+user = ""
+passwd = ""
 db = "pinet_sensors"
 
 
@@ -36,16 +37,6 @@ def connect_db(db=db):
 
 
 def write_sensor_value(sensor_id, value):
-    """
-    INSERT INTO `sensor_readings` (`id`, `sensor_id`, `timestamp`, `value`) VALUES (NULL, '3', NOW(), '999.00')
-
-    sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-    val = ("John", "Highway 21")
-    mycursor.execute(sql, val)
-
-    mydb.commit()
-    """
-
     cnx = connect_db(db)
     cursor = cnx.cursor()
     sql = "INSERT INTO sensor_readings (id, sensor_id, timestamp, value) VALUES (NULL, %s, NOW(), %s)"
