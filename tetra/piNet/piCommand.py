@@ -2,7 +2,7 @@
 
 """
 piCom.py
-Central Command and control for piNet
+Central Command and control prototype for piNet
 """
 
 from configparser import ConfigParser
