@@ -33,9 +33,11 @@ The next iteration of the front end stalled when I joined the CodeClan PSD cours
 
 The VPS, Artemis, is a stock Debian 10 Linux installation. NginX has been configured as the HTTP server with TLS certificates from LetsEncrypt. Additionally, MariaDB has been installed and configured along with a secure MQTT broker (the main transport). A domain name has been attached to the VPS.
 
-I choose to incorporate a VPS for several reasons, mainly, to gain experience using cloud services that have a public facing server (my home network is behind many NAT layers and is not publicly addressable). Being on a public network also allowed me to take time to consider and gain familiarity with security.
+I choose to incorporate a VPS for several reasons, mainly, to gain experience using cloud services that have a public facing server (my home network is behind many NAT layers and is not publicly addressable). Being on a public network also allowed me to take time to consider and gain familiarity with security. 
 
-I chose NginX as it is light weight and to gain some experience using a HTTP server other than Apache.
+All protocols are secured using TLS/SSL, this includes MQTT.  The VPS is accessed via a *Jump Box* using SSH keys.
+
+I chose NginX as it is light weight and to gain some experience using a HTTP server other than Apache.  NginX can also act as a reverse proxy and this will allow a new backend to be developed using any language, Java, Python or Node Express.
 
 ## Learning Points / Next Steps
 This project was a great learning experience and has gone through many iterations. With each iteration the code gets cleaner and more efficient but there is a long way to go. When time allows I would like to rewrite the entire application using Object Orientation and design patterns I have learned while at CodeClan.
