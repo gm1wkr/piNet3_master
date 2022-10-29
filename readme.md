@@ -15,6 +15,8 @@ Each node is a Raspberry Pi SBC (Rpi) connected to a central broker node via an 
 ## Sensors
 Many different sensors have been used including DS18B20 temperature probes, si7120 for air temperature and humidity (laterly upgraded to BME280), soil moisture sensors, light sensors, water tank levels, flow sensors to name a few. Each sensor has a driver file either utilising third party libraries or manufacturers datasheet examples.
 
+![polyhub1200](https://user-images.githubusercontent.com/6051686/198850619-bf6c1000-d0af-4095-b397-38c31e825586.jpg)
+
 Sensor data is immediately parsed to a known structure by the node using python and JSON for transport to the master node. The node can react by triggering alarms, switching on soil bed heating or lighting or activating pumps to deliver water. All actions are reported to the network.
 
 Sensors are not limited to hardware devices. I wrote a basic PHP API that receives weather alert data from the Met Office RSS feed and parses it to a 'piNet' JSON format. The master node consumes this API and reacts by sending an alert Email to interested parties and sending regular alerts to the network while the alert is in force. Other actions can be taken programmatically by command of a node, for example, turning on soil bed heating when an Ice alert is issued.
@@ -31,11 +33,13 @@ The next iteration of the front end stalled when I joined the CodeClan PSD cours
 
 ## VPS on Linode
 
+https://github.com/gm1wkr/piNet-Knavinia
+
 The VPS, Artemis, is a stock Debian 10 Linux installation. NginX has been configured as the HTTP server with TLS certificates from LetsEncrypt. Additionally, MariaDB has been installed and configured along with a secure MQTT broker (the main transport). A domain name has been attached to the VPS.
 
 I choose to incorporate a VPS for several reasons, mainly, to gain experience using cloud services that have a public facing server (my home network is behind many NAT layers and is not publicly addressable). Being on a public network also allowed me to take time to consider and gain familiarity with security. 
 
-All protocols are secured using TLS/SSL, this includes MQTT.  The VPS is accessed via a *Jump Box* using SSH keys.
+All protocols are secured using TLS/SSL, this includes MQTT.  The VPS is accessed and administered via a *Jump Box* using SSH - this also allows remote VSCode sessions.
 
 I chose NginX as it is light weight and to gain some experience using a HTTP server other than Apache.  NginX can also act as a reverse proxy and this will allow a new backend to be developed using any language, Java, Python or Node Express.
 
