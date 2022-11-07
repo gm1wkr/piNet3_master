@@ -39,9 +39,6 @@ CREATE TABLE `apiUsers` (
 -- Dumping data for table `apiUsers`
 --
 
-INSERT INTO `apiUsers` (`id`, `apiUser`, `apiKey`, `level`) VALUES
-(1, 'gwWx', '138cd6ab3bc2474dd600f541ac7493de', 1);
-
 --
 -- Indexes for dumped tables
 --
