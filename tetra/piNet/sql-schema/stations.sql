@@ -41,8 +41,7 @@ CREATE TABLE `stations` (
 -- Dumping data for table `stations`
 --
 
-INSERT INTO `stations` (`station_id`, `station`, `apiUser`, `location_text`, `latitude`, `longitude`) VALUES
-(1, 'Shediverse', 'gwWx', 'Gartswell Shediverse', 57.479183, -2.166387);
+
 
 --
 -- Indexes for dumped tables
