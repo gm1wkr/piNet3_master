@@ -1,5 +1,10 @@
 # Python Hobby Project - IoT network (piNet)
 
+```mermaid
+flowchart LR
+  A --> B
+```
+
 This Python based project aims to create an extensible sensor network by using homemade IOT devices to collect, forward and react to data. Each IOT device reports to a central master node using JSON as the interchange format over various transport layers including MQTT, HTTP and AX25 (9600 baud Radio).
 
 A brief description of the project follows.
